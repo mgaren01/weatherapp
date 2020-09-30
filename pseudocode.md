@@ -10,6 +10,9 @@
 
     //renderPage - display data inside molecules and organisms
 
+    //callWeatherAPI - use fetch to get data
+        //click handler for get weather button
+
     //renderAlert - when api fails or user enters bad data
 
     //validateUserInput - make sure have valid input

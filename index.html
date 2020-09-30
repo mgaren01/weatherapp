@@ -8,7 +8,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="init()">
+
+    <!--input field--> 
+    <input type="text" id="zip"> Enter your zip code</input><br>
+    <!--button-->
+    <br>
+    <button type="button" id="button">Presto</button><br>
+
+    <!--city name-->
+    <p id="city"></p><br>
+    <!--display current weather-->
+        <!--temp. in kelvin, celsius, fahrenheit-->
+        <p id="tempK"></p>
+        <p id="tempC"></p>
+        <p id="tempF"></p><br>
+    <!--image, dictated by weather-->
+    <img id="icon" src="">
+
 
 
     <script src="scratch.js"></script>
