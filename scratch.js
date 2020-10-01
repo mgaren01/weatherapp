@@ -21,7 +21,15 @@ function init() {
     // tempF = tempF.innerHTML
     // icon = icon.innerHTML
     document.getElementById('button').addEventListener('click', getWeather);  //links to html, adds event listener to button
+    //sets elements to be invisible before being populated
+    document.getElementById('cityCard').style.visibility = "hidden"
+    document.getElementById('tempKCard').style.visibility = "hidden"
+    document.getElementById('tempCCard').style.visibility = "hidden"
+    document.getElementById('tempFCard').style.visibility = "hidden"
+    document.getElementById('imgCard').style.visibility = "hidden"
+    document.getElementById('img').style.visibility = "hidden"
 }
+
 
 function getWeather() {
     zip = document.getElementById('zip').value //refers to html for input value of 'zip' element
@@ -32,16 +40,21 @@ function getWeather() {
         if (isValidZip) { //if isValidZip returns as 'true', run fetch function
             fetch(api + zip + "&appid=" + key).then(function (response) {
                 return response.json();
-            }).then(function (json) {
-                console.log(json)
-                data = json //sets data (null, set on line 11) equal to returned json data
+            }).then(function (data) {
                 if (data.cod == '404') { //if bad zip, no data returns, so throw error message
                     alert(data.message)
                 } else { //if good zip, display retrieved data
+                    document.getElementById('cityCard').style.visibility = "initial"//makes city card visible
                     document.getElementById('city').innerHTML = data.name  //city name
-                    document.getElementById('tempK').innerHTML = data.main.temp + "K"; //temp in Kelvin
-                    document.getElementById('tempC').innerHTML = data.main.temp - 273.15 + "C"; //temp Celsius
-                    document.getElementById('tempF').innerHTML = (data.main.temp - 273.15) * 9 / 5 + 32 + "F"; //temp Fahrenheit
+                    document.getElementById('tempKCard').style.visibility = "initial"//kelvin card visible
+                    document.getElementById('tempK').innerHTML = [Math.floor(data.main.temp)] + " K"; //temp in Kelvin
+                    document.getElementById('tempCCard').style.visibility = "initial"//celsius visible
+                    document.getElementById('tempC').innerHTML = [Math.floor(data.main.temp - 273.15)] + " C"; //temp Celsius
+                    document.getElementById('tempFCard').style.visibility = "initial"//fahrenheit visible
+                    document.getElementById('tempF').innerHTML = [Math.floor(data.main.temp - 273.15) * 9 / 5 + 32] + " F"; //temp Fahrenheit
+                    document.getElementById('img').style.visibility = "initial"//img element visible
+                    document.getElementById('imgCard').style.visibility = "initial"
+                    document.getElementById('img').src = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
                 }
             })
         } else { //if isValidZip returns 'false', throw alert

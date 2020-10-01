@@ -5,29 +5,122 @@
 <head>
     <title>Weather App</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .main {
+            background: royalblue;
+        }
+    </style>
 </head>
 
 <body onload="init()">
+    <div class="jumbotron jumbotron-fluid text-center mb-0">
+        <div class="container">
+            <h1 class="display-4">Weather App</h1>
+            <p class="lead">Because you can't be bothered to look out a stinkin' Window.</p>
+        </div>
+    </div>
+    <div class="main">
+        <br>
+        <!--input field-->
+        <div class="col text-center">
+            <input type="text" id="zip"><br> Enter Zip Code for Weather</input><br>
+            <!--button-->
+            <br>
+            <button type="button" id="button">And Presto</button><br><br>
+        </div>
 
-    <!--input field--> 
-    <input type="text" id="zip"> Enter your zip code</input><br>
-    <!--button-->
-    <br>
-    <button type="button" id="button">Presto</button><br>
+        <div class="col text-center p-10">
+            <!--city name-->
+            <div class="card" id="cityCard">
+                <div class="card-header">
+                    Where
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p id="city"></p>
+                        <footer></footer>
+                    </blockquote>
+                </div>
+            </div>
+            <br>
+            <!--display current weather-->
+            <!--temp. in kelvin, celsius, fahrenheit-->
+            <div class="row">
+                <div class="col">
+                    <div class="card" id="tempKCard">
+                        <div class="card-header">
+                            Kelvin
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p id="tempK"></p>
+                                <footer></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" id="tempCCard">
+                        <div class="card-header">
+                            Celsius
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p id="tempC"></p>
+                                <footer></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" id="tempFCard">
+                        <div class="card-header">
+                            Fahrenheit
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p id="tempF"></p>
+                                <footer></footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <br>
+        <!--image, dictated by weather-->
+        <div class="col text-center">
+            <div class="card" id="imgCard">
+                <div class="card-header">
+                    For the Illiterate
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <img id="img" src="">
+                        <footer></footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <br>
 
-    <!--city name-->
-    <p id="city"></p><br>
-    <!--display current weather-->
-        <!--temp. in kelvin, celsius, fahrenheit-->
-        <p id="tempK"></p>
-        <p id="tempC"></p>
-        <p id="tempF"></p><br>
-    <!--image, dictated by weather-->
-    <img id="icon" src="">
+        <footer></footer>
+    </div>
 
 
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
     <script src="scratch.js"></script>
     <!--<script src="main.js"></script>-->
 </body>
