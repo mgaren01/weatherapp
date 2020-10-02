@@ -20,7 +20,17 @@ function init() {
     // tempC = tempC.innerHTML
     // tempF = tempF.innerHTML
     // icon = icon.innerHTML
+    
     document.getElementById('button').addEventListener('click', getWeather);  //links to html, adds event listener to button
+    var input = document.getElementById('zip')
+
+    input.addEventListener('keyup',function(e){
+        if (e.keyCode === 13) {
+        getWeather();
+      }
+    });
+
+    
     //sets elements to be invisible before being populated
     document.getElementById('cityCard').style.visibility = "hidden"
     document.getElementById('tempKCard').style.visibility = "hidden"
